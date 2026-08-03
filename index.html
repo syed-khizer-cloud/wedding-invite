@@ -6,7 +6,15 @@
 <title>Syed Khizer &amp; Dr. Umme Hani | Nikah Invitation</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Amiri:ital,wght@0,400;0,700;1,400&family=Marcellus&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet">
+<style>
+  @font-face{
+    font-family: 'IndoPakNaskh';
+    src: url('https://verses.quran.foundation/fonts/quran/hafs/nastaleeq/indopak/indopak-nastaleeq-waqf-lazim-v4.2.1.woff2') format('woff2'),
+         url('https://verses.quran.foundation/fonts/quran/hafs/nastaleeq/indopak/indopak-nastaleeq-waqf-lazim-v4.2.1.woff') format('woff');
+    font-display: swap;
+  }
+</style>
 <style>
   :root{
     --bg-dark: #17110B;
@@ -21,31 +29,44 @@
     --text-muted: #C4AF83;
     --ink: #3A2114;
     --ink-soft: #5C4530;
+    --maroon: #6B1F1A;
   }
 
   *{ box-sizing: border-box; margin:0; padding:0; }
+  html, body{ height: 100%; }
   html{ scroll-behavior: smooth; }
 
   body{
     background: var(--bg-dark);
     color: var(--text-light);
     font-family: 'EB Garamond', serif;
-    min-height: 100vh;
-    overflow-x: hidden;
+    overflow: hidden;
   }
-  body.locked{ overflow: hidden; height: 100vh; }
 
   /* ================= DARK ROYAL BACKGROUND ================= */
   .bg-layer{
     position: fixed; inset: 0; z-index: -5;
     background:
-      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(201,169,97,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse 55% 45% at 85% 90%, rgba(139,111,61,0.14) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 20% 10%, rgba(201,169,97,0.18) 0%, transparent 55%),
+      radial-gradient(ellipse 55% 45% at 85% 90%, rgba(139,111,61,0.16) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 50% 45%, rgba(60,44,20,0.35) 0%, transparent 70%),
       linear-gradient(160deg, var(--bg-dark-2) 0%, var(--bg-dark) 45%, var(--bg-dark-3) 100%);
   }
   .bg-pattern{
-    position: fixed; inset: 0; z-index: -4; opacity: 0.35;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='84' height='84'%3E%3Cg fill='none' stroke='%23C9A961' stroke-width='0.4' opacity='0.4'%3E%3Crect x='22' y='22' width='40' height='40'/%3E%3Crect x='22' y='22' width='40' height='40' transform='rotate(45 42 42)'/%3E%3C/g%3E%3C/svg%3E");
+    position: fixed; inset: 0; z-index: -4; opacity: 0.5;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cg fill='none' stroke='%23C9A961' stroke-width='0.55' opacity='0.5'%3E%3Cpath d='M60,34 L64.2,49.8 L78.4,41.6 L70.2,55.8 L86,60 L70.2,64.2 L78.4,78.4 L64.2,70.2 L60,86 L55.8,70.2 L41.6,78.4 L49.8,64.2 L34,60 L49.8,55.8 L41.6,41.6 L55.8,49.8 Z'/%3E%3Ccircle cx='60' cy='60' r='6' /%3E%3Cpath d='M0,0 L34,60 L0,120 M120,0 L86,60 L120,120' /%3E%3Cpath d='M0,0 L60,34 M120,0 L60,34 M0,120 L60,86 M120,120 L60,86' /%3E%3C/g%3E%3C/svg%3E");
+  }
+  .bg-pattern-2{
+    position: fixed; inset: 0; z-index: -4; opacity: 0.22; mix-blend-mode: screen;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cg fill='none' stroke='%23F3D98B' stroke-width='0.4' opacity='0.45'%3E%3Cpath d='M120,20 A100,100 0 0 1 220,120 A100,100 0 0 1 120,220 A100,100 0 0 1 20,120 A100,100 0 0 1 120,20 Z'/%3E%3Cpath d='M120,55 A65,65 0 0 1 185,120 A65,65 0 0 1 120,185 A65,65 0 0 1 55,120 A65,65 0 0 1 120,55 Z'/%3E%3C/g%3E%3C/svg%3E");
+    background-position: 20% 15%, 80% 85%;
+  }
+  .arch-glow{
+    position: fixed; z-index: -4; pointer-events: none;
+    top: -8%; left: 50%; transform: translateX(-50%);
+    width: min(85vw, 640px); height: 60vh;
+    background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(201,169,97,0.14) 0%, transparent 70%);
+    clip-path: path('M0,600 L0,180 C0,60 80,0 200,0 C320,0 400,60 400,180 L400,600 Z');
   }
   .vignette{
     position: fixed; inset: 0; z-index: -1; pointer-events: none;
@@ -89,48 +110,64 @@
     .rays, .particle, .bokeh{ animation: none; }
   }
 
-  /* ================= FRAME ================= */
-  .corner{ position: fixed; width: 92px; height: 92px; z-index: 90; pointer-events: none; opacity: 0.95; }
-  .corner.tl{ top: 14px; left: 14px; }
-  .corner.tr{ top: 14px; right: 14px; transform: scaleX(-1); }
-  .corner.bl{ bottom: 14px; left: 14px; transform: scaleY(-1); }
-  .corner.br{ bottom: 14px; right: 14px; transform: scale(-1,-1); }
-  @media (max-width: 640px){
-    .corner{ width: 56px; height: 56px; }
-    .corner.tl, .corner.tr{ top: 8px; } .corner.bl, .corner.br{ bottom: 8px; }
-    .corner.tl, .corner.bl{ left: 8px; } .corner.tr, .corner.br{ right: 8px; }
+  /* ================= STAGE (bordered, self-contained scroll area) ================= */
+  .stage{
+    position: fixed;
+    inset: 22px;
+    z-index: 10;
   }
-  .frame-line{ position: fixed; inset: 22px; border: 1px solid rgba(201,169,97,0.55); z-index: 89; pointer-events: none; }
-  @media (max-width: 640px){ .frame-line{ inset: 14px; } }
+  @media (max-width: 640px){ .stage{ inset: 12px; } }
 
-  /* ================= SEAL INTRO ================= */
-  #seal-screen{
-    position: fixed; inset: 0; z-index: 200;
-    display: flex; flex-direction: column; align-items: center; justify-content: center;
-    background: radial-gradient(ellipse at center, var(--bg-dark-2) 0%, var(--bg-dark-3) 100%);
-    transition: opacity 0.9s ease, visibility 0.9s;
+  .frame-border{
+    position: absolute; inset: 0;
+    border: 1px solid rgba(201,169,97,0.55);
+    pointer-events: none; z-index: 5;
   }
-  #seal-screen.hidden{ opacity: 0; visibility: hidden; pointer-events: none; }
-  .seal-wrap{
-    cursor: pointer;
-    display: flex; flex-direction: column; align-items: center; gap: 20px;
-    transition: transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.7s ease;
+  .frame-border::before{
+    content: ""; position: absolute; inset: 7px;
+    border: 1px solid rgba(201,169,97,0.28);
+    pointer-events: none;
   }
-  .seal-wrap.opening{ transform: scale(1.3); opacity: 0; }
-  .seal-wrap svg{ width: 150px; height: 150px; filter: drop-shadow(0 0 22px rgba(243,217,139,0.35)); }
-  .seal-cta{
-    font-family: 'Marcellus', serif; letter-spacing: 0.24em; text-transform: uppercase;
-    font-size: 0.72rem; color: var(--gold-bright);
-    animation: pulseFade 2.2s ease-in-out infinite;
+  .border-trim{ position: absolute; z-index: 6; pointer-events: none; opacity: 0.85; }
+  .border-trim.top, .border-trim.bottom{
+    left: 66px; right: 66px; height: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='10'%3E%3Cpath d='M12 1 L16 5 L12 9 L8 5 Z' fill='%23C9A961' opacity='0.65'/%3E%3C/svg%3E");
+    background-repeat: repeat-x; background-position: center;
   }
-  @keyframes pulseFade{ 0%,100%{ opacity: 0.55; } 50%{ opacity: 1; } }
-  #crack{ stroke-dashoffset: 260; transition: stroke-dashoffset 0.5s ease; }
-  .seal-wrap.opening #crack{ stroke-dashoffset: 0; }
+  .border-trim.top{ top: -5px; }
+  .border-trim.bottom{ bottom: -5px; }
+  .border-trim.left, .border-trim.right{
+    top: 66px; bottom: 66px; width: 10px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='24'%3E%3Cpath d='M1 12 L5 8 L9 12 L5 16 Z' fill='%23C9A961' opacity='0.65'/%3E%3C/svg%3E");
+    background-repeat: repeat-y; background-position: center;
+  }
+  .border-trim.left{ left: -5px; }
+  .border-trim.right{ right: -5px; }
+  @media (max-width: 640px){
+    .border-trim.top, .border-trim.bottom{ left: 44px; right: 44px; }
+    .border-trim.left, .border-trim.right{ top: 44px; bottom: 44px; }
+  }
+
+  .corner{ position: absolute; width: 60px; height: 60px; z-index: 6; pointer-events: none; opacity: 0.95; }
+  .corner.tl{ top: -1px; left: -1px; }
+  .corner.tr{ top: -1px; right: -1px; transform: scaleX(-1); }
+  .corner.bl{ bottom: -1px; left: -1px; transform: scaleY(-1); }
+  .corner.br{ bottom: -1px; right: -1px; transform: scale(-1,-1); }
+  @media (max-width: 640px){ .corner{ width: 40px; height: 40px; } }
+
+  .scroll-area{
+    position: absolute; inset: 0;
+    overflow-y: auto; overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: var(--gold-deep) transparent;
+  }
+  .scroll-area::-webkit-scrollbar{ width: 5px; }
+  .scroll-area::-webkit-scrollbar-thumb{ background: var(--gold-deep); border-radius: 3px; }
 
   /* ================= LAYOUT ================= */
-  .container{ max-width: 720px; margin: 0 auto; padding: 70px 30px 100px; position: relative; }
+  .container{ max-width: 720px; margin: 0 auto; padding: 60px 30px 90px; position: relative; }
 
-  /* Base reveal states — different entrance per type */
   .anim{ opacity: 0; transition: opacity 1s cubic-bezier(.2,.7,.3,1), transform 1s cubic-bezier(.2,.7,.3,1), filter 1s ease; }
   .anim.in-view{ opacity: 1; transform: none !important; filter: none !important; }
 
@@ -149,7 +186,9 @@
   }
   @keyframes foilShift{ 0%,100%{ background-position: 0% 0%; } 50%{ background-position: 0% 100%; } }
 
-  .bismillah{ text-align:center; font-family:'Amiri',serif; font-size: clamp(1.8rem,5.8vw,2.4rem); margin-top: 10px; }
+  .arabic{ font-family: 'IndoPakNaskh', 'Noto Naskh Arabic', serif; direction: rtl; }
+
+  .bismillah.arabic{ text-align:center; font-size: clamp(1.7rem,5.6vw,2.3rem); margin-top: 10px; line-height: 1.9; }
   .eyebrow{
     text-align:center; font-family: 'Marcellus', serif; letter-spacing: 0.32em; text-transform: uppercase;
     font-size: 0.72rem; color: var(--gold-bright); margin-top: 20px;
@@ -162,16 +201,15 @@
 
   .names{
     text-align:center; font-family:'Cormorant Garamond',serif; font-weight: 600;
-    font-size: clamp(2.7rem, 9.5vw, 4.5rem); line-height: 1.15;
+    font-size: clamp(2.6rem, 9vw, 4.3rem); line-height: 1.15;
   }
   .names .letter{ display: inline-block; opacity: 0; transform: translateY(14px); }
   .names.animate .letter{ animation: letterIn 0.6s ease forwards; }
   @keyframes letterIn{ to{ opacity:1; transform: translateY(0); } }
   .names .amp{ display:block; font-style: italic; font-size: 0.46em; margin: 8px 0; }
 
-  .subtitle{ text-align:center; font-style: italic; font-size: 1.08rem; color: var(--text-muted); margin-top: 18px; min-height: 1.6em; }
+  .subtitle{ text-align:center; font-style: italic; font-size: 1.06rem; color: var(--text-muted); margin-top: 18px; min-height: 1.6em; }
 
-  /* Typewriter cursor */
   .type-target::after{
     content: '|'; display: inline-block; margin-left: 2px; color: var(--gold-bright);
     animation: blink 0.8s step-end infinite; opacity: 0;
@@ -179,23 +217,40 @@
   .type-target.typing::after{ opacity: 1; }
 
   .ayah-block{
-    margin: 62px auto 0; max-width: 570px; text-align:center;
-    padding: 40px 30px; position: relative;
+    margin: 58px auto 0; max-width: 570px; text-align:center;
+    padding: 38px 30px; position: relative;
     background: linear-gradient(180deg, rgba(247,241,226,0.97), rgba(238,225,195,0.97));
     border: 1px solid var(--gold);
     box-shadow: 0 24px 60px rgba(0,0,0,0.55), 0 0 40px rgba(243,217,139,0.08), inset 0 0 0 1px rgba(255,255,255,0.4);
   }
-  .ayah-block .mini-corner{ position:absolute; width:26px; height:26px; }
-  .ayah-block .mini-corner.tl{ top:-9px; left:-9px; }
-  .ayah-block .mini-corner.tr{ top:-9px; right:-9px; transform: scaleX(-1); }
-  .ayah-block .mini-corner.bl{ bottom:-9px; left:-9px; transform: scaleY(-1); }
-  .ayah-block .mini-corner.br{ bottom:-9px; right:-9px; transform: scale(-1,-1); }
+  .ayah-block .mini-corner{ position:absolute; width:24px; height:24px; }
+  .ayah-block .mini-corner.tl{ top:-8px; left:-8px; }
+  .ayah-block .mini-corner.tr{ top:-8px; right:-8px; transform: scaleX(-1); }
+  .ayah-block .mini-corner.bl{ bottom:-8px; left:-8px; transform: scaleY(-1); }
+  .ayah-block .mini-corner.br{ bottom:-8px; right:-8px; transform: scale(-1,-1); }
 
-  .ayah-arabic{ font-family:'Amiri',serif; font-size: clamp(1.2rem,4.2vw,1.55rem); line-height: 2.2; direction: rtl; color: var(--ink); }
+  .ayah-arabic{ font-size: clamp(1.35rem,4.6vw,1.75rem); line-height: 2.5; color: var(--ink); }
   .ayah-translation{ font-style: italic; font-size: 0.98rem; color: var(--ink-soft); margin-top: 22px; line-height: 1.8; min-height: 5em; }
   .ayah-ref{ margin-top: 16px; font-family: 'Marcellus', serif; font-size: 0.75rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold-deep); }
 
-  .section-title{ text-align:center; font-family:'Amiri',serif; font-size: clamp(1.6rem,5.4vw,2.05rem); margin-top: 72px; }
+  .invite-by{
+    margin: 34px auto 0; max-width: 570px; text-align:center;
+    padding: 28px 28px; position: relative;
+    background: linear-gradient(180deg, rgba(247,241,226,0.97), rgba(238,225,195,0.97));
+    border: 1px solid var(--gold);
+    box-shadow: 0 20px 48px rgba(0,0,0,0.5), 0 0 30px rgba(243,217,139,0.06);
+    color: var(--ink-soft);
+  }
+  .invite-by-label{
+    font-family: 'Marcellus', serif; letter-spacing: 0.22em; text-transform: uppercase;
+    font-size: 0.7rem; color: var(--gold-deep); margin-bottom: 12px;
+  }
+  .invite-by-text{ font-size: 1.02rem; line-height: 1.9; }
+  .invite-by-text .divider-and{ display:block; margin: 10px 0; font-style: italic; color: var(--gold-deep); font-size: 1.1em; }
+  .invite-by-text{ line-height: 1.7; }
+  .invite-by-text strong{ font-family: 'Cormorant Garamond', serif; font-size: 1.15em; font-weight: 700; color: var(--ink); }
+
+  .section-title{ text-align:center; font-family:'Amiri',serif; font-size: clamp(1.6rem,5.4vw,2.05rem); margin-top: 68px; }
 
   .event-card{
     margin: 26px auto 0; max-width: 500px; text-align:center;
@@ -239,7 +294,7 @@
     box-shadow: 0 10px 26px rgba(243,217,139,0.3), inset 0 0 0 1px rgba(255,255,255,0.55);
   }
   .royal-btn:hover::after{ left: 140%; }
-  .royal-btn svg{ width: 14px; height: 14px; flex-shrink: 0; }
+  .royal-btn svg{ width: 15px; height: 15px; flex-shrink: 0; }
 
   .royal-btn.primary{
     background: linear-gradient(180deg, var(--gold-bright), var(--gold) 55%, var(--gold-deep));
@@ -249,12 +304,10 @@
   .royal-btn.primary:hover{ color: #FFFDF4; box-shadow: 0 14px 34px rgba(243,217,139,0.4); }
 
   .btn-row{ display:flex; justify-content:center; flex-wrap: wrap; gap: 14px; margin-top: 18px; }
-
-  /* On dark bg, buttons outside cards get a subtle glow instead of dark shadow */
   .container > .btn-row .royal-btn{ box-shadow: 0 0 24px rgba(243,217,139,0.15), inset 0 0 0 1px rgba(255,255,255,0.15); }
 
   /* ================= COUNTDOWN ================= */
-  .countdown-wrap{ margin-top: 68px; text-align:center; }
+  .countdown-wrap{ margin-top: 64px; text-align:center; }
   .countdown-label{ font-family:'Marcellus',serif; letter-spacing: 0.28em; text-transform: uppercase; font-size: 0.72rem; color: var(--gold-bright); margin-bottom: 24px; }
   .countdown{ display:flex; justify-content:center; gap: 20px; flex-wrap: wrap; }
   .medallion{
@@ -266,21 +319,69 @@
     transition: transform 0.35s ease;
   }
   .medallion:hover{ transform: translateY(-5px) scale(1.05); }
-  .medallion .count-num{ font-family:'Cormorant Garamond',serif; font-size: 1.7rem; font-weight: 700; color: var(--ink); line-height: 1; }
+  .medallion .count-num{ font-family:'Cormorant Garamond',serif; font-size: 1.85rem; font-weight: 800; color: var(--maroon); line-height: 1; text-shadow: 0 1px 0 rgba(255,255,255,0.5); }
   .medallion .count-unit-label{ margin-top: 4px; font-family:'Marcellus',serif; font-size: 0.56rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-deep); }
 
-  .closing{ text-align:center; margin-top: 78px; font-style: italic; font-size: 1.08rem; color: var(--text-muted); line-height: 1.9; min-height: 3.6em; }
-  .signature{ text-align:center; margin-top: 32px; font-family:'Cormorant Garamond',serif; font-size: 1.4rem; color: var(--text-light); }
+  .closing{ text-align:center; margin-top: 74px; font-style: italic; font-size: 1.06rem; color: var(--text-muted); line-height: 1.9; min-height: 3.6em; }
+  .signature{ text-align:center; margin-top: 30px; font-family:'Cormorant Garamond',serif; font-size: 1.35rem; color: var(--text-light); }
   .signature .with-love{ display:block; font-family:'EB Garamond',serif; font-style: italic; font-size: 0.86rem; color: var(--gold-bright); margin-bottom: 8px; }
 
-  .footer-seal{ display:flex; justify-content:center; margin-top: 56px; }
-  .footer-seal svg{ width: 46px; height: 46px; animation: sealGlow 4s ease-in-out infinite; }
+  .footer-seal{ display:flex; justify-content:center; margin-top: 50px; }
+  .footer-seal svg{ width: 44px; height: 44px; animation: sealGlow 4s ease-in-out infinite; }
   @keyframes sealGlow{
     0%,100%{ filter: drop-shadow(0 0 0px rgba(243,217,139,0)); opacity: 0.85; }
     50%{ filter: drop-shadow(0 0 10px rgba(243,217,139,0.75)); opacity: 1; }
   }
 
   @keyframes blink{ 50%{ opacity: 0; } }
+
+  /* ================= SEAL INTRO ================= */
+  #seal-screen{
+    position: fixed; inset: 0; z-index: 200;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: radial-gradient(ellipse at center, var(--bg-dark-2) 0%, var(--bg-dark-3) 100%);
+    transition: opacity 0.9s ease, visibility 0.9s;
+  }
+  #seal-screen.hidden{ opacity: 0; visibility: hidden; pointer-events: none; }
+  .seal-wrap{
+    cursor: pointer;
+    display: flex; flex-direction: column; align-items: center; gap: 20px;
+    transition: transform 0.7s cubic-bezier(.4,0,.2,1), opacity 0.7s ease;
+  }
+  .seal-wrap.opening{ transform: scale(1.3); opacity: 0; }
+  .seal-wrap svg{ width: 150px; height: 150px; filter: drop-shadow(0 0 22px rgba(243,217,139,0.35)); }
+  .seal-cta{
+    font-family: 'Marcellus', serif; letter-spacing: 0.24em; text-transform: uppercase;
+    font-size: 0.72rem; color: var(--gold-bright);
+    animation: pulseFade 2.2s ease-in-out infinite;
+  }
+  @keyframes pulseFade{ 0%,100%{ opacity: 0.55; } 50%{ opacity: 1; } }
+  .music-toggle{
+    position: fixed; z-index: 150; bottom: 26px; right: 26px;
+    width: 52px; height: 52px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: radial-gradient(circle at 35% 30%, var(--gold-bright), var(--gold) 55%, var(--gold-deep));
+    border: 1px solid var(--gold-deep);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.45), 0 0 18px rgba(243,217,139,0.25);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  .music-toggle:hover{ transform: scale(1.08); }
+  .music-toggle svg{ width: 22px; height: 22px; color: #3A2114; }
+  .music-toggle .icon-pause{ display: none; }
+  .music-toggle.playing .icon-play{ display: none; }
+  .music-toggle.playing .icon-pause{ display: block; }
+  .music-toggle .ring{
+    position: absolute; inset: -6px; border-radius: 50%;
+    border: 1px solid rgba(243,217,139,0.5);
+    opacity: 0; animation: none;
+  }
+  .music-toggle.playing .ring{ opacity: 1; animation: ringPulse 2.2s ease-out infinite; }
+  @keyframes ringPulse{
+    0%{ transform: scale(0.9); opacity: 0.6; }
+    100%{ transform: scale(1.35); opacity: 0; }
+  }
+  @media (max-width: 640px){ .music-toggle{ bottom: 18px; right: 18px; width: 46px; height: 46px; } .music-toggle svg{ width: 19px; height: 19px; } }
 
   @media (prefers-reduced-motion: reduce){
     .anim{ transition:none; opacity:1; transform:none !important; filter:none !important; }
@@ -289,20 +390,130 @@
   }
 </style>
 </head>
-<body class="locked">
+<body>
 
 <div class="bg-layer"></div>
 <div class="bg-pattern"></div>
+<div class="bg-pattern-2"></div>
+<div class="arch-glow"></div>
 <div class="rays"></div>
 <div class="vignette"></div>
 <div id="bokehLayer"></div>
 <div id="particles"></div>
 
-<div class="frame-line"></div>
-<div class="corner tl"><svg viewBox="0 0 92 92" fill="none"><path d="M4 4 L4 40 M4 4 L40 4" stroke="#C9A961" stroke-width="1.4"/><path d="M4 4 Q30 4 30 30 Q30 4 56 4" stroke="#C9A961" stroke-width="1.1" fill="none"/><circle cx="4" cy="4" r="3" fill="#C9A961"/><path d="M14 4 Q26 12 14 24 Q30 20 30 8" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.7"/></svg></div>
-<div class="corner tr"><svg viewBox="0 0 92 92" fill="none"><path d="M4 4 L4 40 M4 4 L40 4" stroke="#C9A961" stroke-width="1.4"/><path d="M4 4 Q30 4 30 30 Q30 4 56 4" stroke="#C9A961" stroke-width="1.1" fill="none"/><circle cx="4" cy="4" r="3" fill="#C9A961"/><path d="M14 4 Q26 12 14 24 Q30 20 30 8" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.7"/></svg></div>
-<div class="corner bl"><svg viewBox="0 0 92 92" fill="none"><path d="M4 4 L4 40 M4 4 L40 4" stroke="#C9A961" stroke-width="1.4"/><path d="M4 4 Q30 4 30 30 Q30 4 56 4" stroke="#C9A961" stroke-width="1.1" fill="none"/><circle cx="4" cy="4" r="3" fill="#C9A961"/><path d="M14 4 Q26 12 14 24 Q30 20 30 8" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.7"/></svg></div>
-<div class="corner br"><svg viewBox="0 0 92 92" fill="none"><path d="M4 4 L4 40 M4 4 L40 4" stroke="#C9A961" stroke-width="1.4"/><path d="M4 4 Q30 4 30 30 Q30 4 56 4" stroke="#C9A961" stroke-width="1.1" fill="none"/><circle cx="4" cy="4" r="3" fill="#C9A961"/><path d="M14 4 Q26 12 14 24 Q30 20 30 8" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.7"/></svg></div>
+<div class="stage">
+  <div class="frame-border"></div>
+  <div class="border-trim top"></div>
+  <div class="border-trim bottom"></div>
+  <div class="border-trim left"></div>
+  <div class="border-trim right"></div>
+  <div class="corner tl"><svg viewBox="0 0 60 60" fill="none"><path d="M2 2 L2 40" stroke="#C9A961" stroke-width="1.3"/><path d="M2 2 L40 2" stroke="#C9A961" stroke-width="1.3"/><path d="M2 16 Q16 16 16 2" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.75"/><circle cx="2" cy="2" r="2.5" fill="#C9A961"/></svg></div>
+  <div class="corner tr"><svg viewBox="0 0 60 60" fill="none"><path d="M2 2 L2 40" stroke="#C9A961" stroke-width="1.3"/><path d="M2 2 L40 2" stroke="#C9A961" stroke-width="1.3"/><path d="M2 16 Q16 16 16 2" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.75"/><circle cx="2" cy="2" r="2.5" fill="#C9A961"/></svg></div>
+  <div class="corner bl"><svg viewBox="0 0 60 60" fill="none"><path d="M2 2 L2 40" stroke="#C9A961" stroke-width="1.3"/><path d="M2 2 L40 2" stroke="#C9A961" stroke-width="1.3"/><path d="M2 16 Q16 16 16 2" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.75"/><circle cx="2" cy="2" r="2.5" fill="#C9A961"/></svg></div>
+  <div class="corner br"><svg viewBox="0 0 60 60" fill="none"><path d="M2 2 L2 40" stroke="#C9A961" stroke-width="1.3"/><path d="M2 2 L40 2" stroke="#C9A961" stroke-width="1.3"/><path d="M2 16 Q16 16 16 2" stroke="#C9A961" stroke-width="1" fill="none" opacity="0.75"/><circle cx="2" cy="2" r="2.5" fill="#C9A961"/></svg></div>
+
+  <div class="scroll-area" id="scrollArea">
+    <div class="container">
+
+      <div class="bismillah arabic foil-text anim anim-up">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
+      <div class="eyebrow anim anim-up">By the royal grace of Allah</div>
+
+      <div class="star-divider anim anim-scale">
+        <span class="line"></span>
+        <svg viewBox="0 0 40 40"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="#C9A961"/></svg>
+        <span class="line"></span>
+      </div>
+
+      <h1 class="names foil-text" id="names-heading">
+        <span class="line1"></span>
+        <span class="amp">&amp;</span>
+        <span class="line2"></span>
+      </h1>
+      <p class="subtitle type-target" data-text="joyfully invite you to celebrate their Nikah"></p>
+
+      <div class="ayah-block anim anim-scale">
+        <svg class="mini-corner tl" viewBox="0 0 24 24"><path d="M2 2 L2 14 M2 2 L14 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
+        <svg class="mini-corner tr" viewBox="0 0 24 24"><path d="M2 2 L2 14 M2 2 L14 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
+        <svg class="mini-corner bl" viewBox="0 0 24 24"><path d="M2 2 L2 14 M2 2 L14 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
+        <svg class="mini-corner br" viewBox="0 0 24 24"><path d="M2 2 L2 14 M2 2 L14 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
+        <div class="ayah-arabic arabic">
+          وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً<br>
+          إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
+        </div>
+        <div class="ayah-translation type-target" data-text='"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them, and He placed between you love and mercy. Indeed in that are signs for a people who give thought."'></div>
+        <div class="ayah-ref">Surah Ar-Rum 30:21</div>
+      </div>
+
+      <div class="invite-by anim anim-scale">
+        <div class="invite-by-label">Cordially invited by</div>
+        <div class="invite-by-text">
+          <strong>Syed Khizer</strong><br>
+          S/O Mr. Syed Omar Alias Iyaz &amp; Mrs. Sameena Begum
+          <span class="divider-and">&amp;</span>
+          <strong>Dr. Umme Hani A.</strong><br>
+          D/O Mr. Hafiz Mohammed Amanullah &amp; Mrs. Tabassum Sultana
+        </div>
+      </div>
+
+      <h2 class="section-title foil-text anim anim-up">نِكَاح — The Nikah</h2>
+      <div class="event-card anim anim-left">
+        <div class="event-name">17th October 2026</div>
+        <div class="event-detail">After <strong>Namaz-e-Asr</strong><br>at <strong>Masjid-e-Khadriya</strong></div>
+        <a class="royal-btn" href="https://www.google.com/maps/search/?api=1&query=Masjid-e-Khadriya" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          View Location
+        </a>
+      </div>
+
+      <h2 class="section-title foil-text anim anim-up">الوَلِيمَة — The Walima</h2>
+      <div class="event-card anim anim-right">
+        <div class="event-name">Same Day, Dinner</div>
+        <div class="event-detail">From <strong>7:30 PM</strong> onwards<br>at <strong>Samad House Deluxe</strong></div>
+        <a class="royal-btn" href="https://www.google.com/maps/search/?api=1&query=Samad+House+Deluxe" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
+          View Location
+        </a>
+      </div>
+
+      <div class="countdown-wrap anim anim-up">
+        <div class="countdown-label">Counting down to the Nikah</div>
+        <div class="countdown" id="countdown">
+          <div class="medallion anim anim-pop"><div class="count-num" id="cd-days">--</div><div class="count-unit-label">Days</div></div>
+          <div class="medallion anim anim-pop"><div class="count-num" id="cd-hours">--</div><div class="count-unit-label">Hours</div></div>
+          <div class="medallion anim anim-pop"><div class="count-num" id="cd-mins">--</div><div class="count-unit-label">Mins</div></div>
+          <div class="medallion anim anim-pop"><div class="count-num" id="cd-secs">--</div><div class="count-unit-label">Secs</div></div>
+        </div>
+      </div>
+
+      <div class="btn-row anim anim-up">
+        <a class="royal-btn primary" href="https://wa.me/?text=We%20are%20delighted%20to%20accept%20your%20invitation!" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-.9.1-3-.8-2.5-1.1-4.1-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.3 0 .5-.3.6-.6.9-.9 1.3-.1.2-.3.3-.1.6.5.9 1.1 1.6 1.9 2.2.8.6 1.3.8 1.6.9.3.1.5.1.6-.1.2-.3.6-.9.8-1.2.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg>
+          RSVP on WhatsApp
+        </a>
+        <a class="royal-btn" href="data:text/calendar;charset=utf8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ANikah%20-%20Syed%20Khizer%20%26%20Dr.%20Umme%20Hani%0ADTSTART%3A20261017T160000%0ADTEND%3A20261017T190000%0ALOCATION%3AMasjid-E-Khadriya%0ADESCRIPTION%3ANikah%20ceremony%20after%20Namaz-e-Asr%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="Nikah-Khizer-Hani.ics">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
+          Add to Calendar
+        </a>
+      </div>
+
+      <p class="closing type-target" data-text="Your presence is the greatest gift we could ask for — we would be honoured to have you with us."></p>
+
+      <div class="signature anim anim-up">
+        <span class="with-love">With love,</span>
+        Syed Khizer &amp; Dr. Umme Hani A.
+      </div>
+
+      <div class="footer-seal anim anim-pop">
+        <svg viewBox="0 0 40 40" fill="none">
+          <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="1.2"/>
+          <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.8"/>
+          <path d="M20 10 L22 18 L30 20 L22 22 L20 30 L18 22 L10 20 L18 18 Z" fill="#C9A961" opacity="0.85"/>
+        </svg>
+      </div>
+
+    </div>
+  </div>
+</div>
 
 <div id="seal-screen">
   <div class="seal-wrap" id="seal-wrap">
@@ -317,103 +528,12 @@
       <circle cx="75" cy="75" r="66" fill="url(#waxGrad)" stroke="#6B5326" stroke-width="2"/>
       <circle cx="75" cy="75" r="54" fill="none" stroke="#6B5326" stroke-width="1" opacity="0.5"/>
       <text x="75" y="86" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="42" font-weight="600" fill="#3A2114">KH</text>
-      <path id="crack" d="M40 45 L70 78 L58 110 M70 78 L112 62" stroke="#3A2114" stroke-width="1.3" fill="none" stroke-dasharray="130" opacity="0.75"/>
     </svg>
     <div class="seal-cta">Tap to open your invitation</div>
   </div>
 </div>
 
-<div class="container">
-
-  <div class="bismillah foil-text anim anim-up">بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ</div>
-  <div class="eyebrow anim anim-up">By the royal grace of Allah</div>
-
-  <div class="star-divider anim anim-scale">
-    <span class="line"></span>
-    <svg viewBox="0 0 40 40"><path d="M20 2 L24 16 L38 20 L24 24 L20 38 L16 24 L2 20 L16 16 Z" fill="#C9A961"/></svg>
-    <span class="line"></span>
-  </div>
-
-  <h1 class="names foil-text" id="names-heading">
-    <span class="line1"></span>
-    <span class="amp">&amp;</span>
-    <span class="line2"></span>
-  </h1>
-  <p class="subtitle type-target" data-text="joyfully invite you to celebrate their Nikah"></p>
-
-  <div class="ayah-block anim anim-scale">
-    <svg class="mini-corner tl" viewBox="0 0 26 26"><path d="M2 2 L2 16 M2 2 L16 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
-    <svg class="mini-corner tr" viewBox="0 0 26 26"><path d="M2 2 L2 16 M2 2 L16 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
-    <svg class="mini-corner bl" viewBox="0 0 26 26"><path d="M2 2 L2 16 M2 2 L16 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
-    <svg class="mini-corner br" viewBox="0 0 26 26"><path d="M2 2 L2 16 M2 2 L16 2" stroke="#8B6F3D" stroke-width="1.5"/></svg>
-    <div class="ayah-arabic">
-      وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُمْ مِنْ أَنْفُسِكُمْ أَزْوَاجًا لِتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُمْ مَوَدَّةً وَرَحْمَةً<br>
-      إِنَّ فِي ذَٰلِكَ لَآيَاتٍ لِقَوْمٍ يَتَفَكَّرُونَ
-    </div>
-    <div class="ayah-translation type-target" data-text='"And among His signs is that He created for you spouses from among yourselves, that you may find tranquility in them, and He placed between you love and mercy. Indeed in that are signs for a people who give thought."'></div>
-    <div class="ayah-ref">Surah Ar-Rum 30:21</div>
-  </div>
-
-  <h2 class="section-title foil-text anim anim-up">نِكَاح — The Nikah</h2>
-  <div class="event-card anim anim-left">
-    <div class="event-name">17th October 2026</div>
-    <div class="event-detail">After <strong>Namaz-e-Asr</strong><br>at <strong>Masjid-e-Khadriya</strong></div>
-    <a class="royal-btn" href="https://www.google.com/maps/search/?api=1&query=Masjid-e-Khadriya" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-      View Location
-    </a>
-  </div>
-
-  <h2 class="section-title foil-text anim anim-up">الوَلِيمَة — The Walima</h2>
-  <div class="event-card anim anim-right">
-    <div class="event-name">Same Day, Dinner</div>
-    <div class="event-detail">From <strong>7:30 PM</strong> onwards<br>at <strong>Samad House Delux</strong></div>
-    <a class="royal-btn" href="https://www.google.com/maps/search/?api=1&query=Samad+House+Delux" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.4"/></svg>
-      View Location
-    </a>
-  </div>
-
-  <div class="countdown-wrap anim anim-up">
-    <div class="countdown-label">Counting down to the Nikah</div>
-    <div class="countdown" id="countdown">
-      <div class="medallion anim anim-pop"><div class="count-num" id="cd-days">--</div><div class="count-unit-label">Days</div></div>
-      <div class="medallion anim anim-pop"><div class="count-num" id="cd-hours">--</div><div class="count-unit-label">Hours</div></div>
-      <div class="medallion anim anim-pop"><div class="count-num" id="cd-mins">--</div><div class="count-unit-label">Mins</div></div>
-      <div class="medallion anim anim-pop"><div class="count-num" id="cd-secs">--</div><div class="count-unit-label">Secs</div></div>
-    </div>
-  </div>
-
-  <div class="btn-row anim anim-up">
-    <a class="royal-btn primary" href="https://wa.me/91XXXXXXXXXX?text=We%20are%20delighted%20to%20accept%20your%20invitation!" target="_blank" rel="noopener">
-      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.2-1.4C8.6 21.5 10.3 22 12 22c5.5 0 10-4.5 10-10S17.5 2 12 2zm5 14.2c-.2.6-1.2 1.2-1.7 1.2-.4 0-.9.1-3-.8-2.5-1.1-4.1-3.7-4.3-3.9-.1-.2-1-1.3-1-2.5s.6-1.8.9-2c.2-.2.5-.3.7-.3h.5c.2 0 .4 0 .6.4.2.5.7 1.7.8 1.9.1.2.1.3 0 .5-.3.6-.6.9-.9 1.3-.1.2-.3.3-.1.6.5.9 1.1 1.6 1.9 2.2.8.6 1.3.8 1.6.9.3.1.5.1.6-.1.2-.3.6-.9.8-1.2.2-.3.4-.2.6-.1.2.1 1.5.7 1.7.8.2.1.4.2.4.3.1.2.1.7-.1 1.3z"/></svg>
-      RSVP on WhatsApp
-    </a>
-    <a class="royal-btn" href="data:text/calendar;charset=utf8,BEGIN%3AVCALENDAR%0AVERSION%3A2.0%0ABEGIN%3AVEVENT%0ASUMMARY%3ANikah%20-%20Syed%20Khizer%20%26%20Dr.%20Umme%20Hani%0ADTSTART%3A20261017T160000%0ADTEND%3A20261017T190000%0ALOCATION%3AMasjid-E-Khadriya%0ADESCRIPTION%3ANikah%20ceremony%20after%20Namaz-e-Asr%0AEND%3AVEVENT%0AEND%3AVCALENDAR" download="Nikah-Khizer-Hani.ics">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="16" rx="1.5"/><path d="M3 9h18M8 3v4M16 3v4"/></svg>
-      Add to Calendar
-    </a>
-  </div>
-
-  <p class="closing type-target" data-text="Your presence is the greatest gift we could ask for — we would be honoured to have you with us."></p>
-
-  <div class="signature anim anim-up">
-    <span class="with-love">With love,</span>
-    Syed Khizer &amp; Dr. Umme Hani A.
-  </div>
-
-  <div class="footer-seal anim anim-pop">
-    <svg viewBox="0 0 40 40" fill="none">
-      <circle cx="20" cy="20" r="18" stroke="#C9A961" stroke-width="1.2"/>
-      <circle cx="20" cy="20" r="13" stroke="#C9A961" stroke-width="0.8"/>
-      <path d="M20 10 L22 18 L30 20 L22 22 L20 30 L18 22 L10 20 L18 18 Z" fill="#C9A961" opacity="0.85"/>
-    </svg>
-  </div>
-
-</div>
-
 <script>
-  // ---------- Letter-by-letter names ----------
   function wrapLetters(text){
     return text.split('').map(ch => {
       const span = document.createElement('span');
@@ -430,7 +550,6 @@
   wrapLetters(name1).forEach((s,i)=>{ s.style.animationDelay = (i*0.045)+'s'; line1.appendChild(s); });
   wrapLetters(name2).forEach((s,i)=>{ s.style.animationDelay = (name1.length*0.045 + 0.3 + i*0.045)+'s'; line2.appendChild(s); });
 
-  // ---------- Typewriter effect ----------
   function typeText(el, speed){
     const text = el.getAttribute('data-text') || '';
     el.textContent = '';
@@ -439,14 +558,12 @@
     function step(){
       el.textContent = text.slice(0, i);
       i++;
-      if(i <= text.length){
-        setTimeout(step, speed);
-      } else {
-        setTimeout(()=> el.classList.remove('typing'), 900);
-      }
+      if(i <= text.length){ setTimeout(step, speed); }
+      else{ setTimeout(()=> el.classList.remove('typing'), 900); }
     }
     step();
   }
+  const scrollAreaEl = document.getElementById('scrollArea');
   const typeObserver = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if(entry.isIntersecting){
@@ -454,10 +571,9 @@
         typeObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.4 });
+  }, { root: scrollAreaEl, threshold: 0.4 });
   document.querySelectorAll('.type-target').forEach(el => typeObserver.observe(el));
 
-  // ---------- Countdown ----------
   const targetDate = new Date("2026-10-17T16:00:00+05:30").getTime();
   function updateCountdown(){
     const distance = targetDate - Date.now();
@@ -474,9 +590,8 @@
   updateCountdown();
   setInterval(updateCountdown, 1000);
 
-  // ---------- Scroll reveal (varied per element) ----------
   const scrollObserver = new IntersectionObserver((entries) => {
-    entries.forEach((entry, idx) => {
+    entries.forEach((entry) => {
       if(entry.isIntersecting){
         const delay = entry.target.classList.contains('medallion') ?
           Array.from(entry.target.parentElement.children).indexOf(entry.target) * 90 : 0;
@@ -484,19 +599,17 @@
         scrollObserver.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.18 });
+  }, { root: scrollAreaEl, threshold: 0.18 });
   document.querySelectorAll('.anim, .event-card').forEach(el => scrollObserver.observe(el));
 
-  // ---------- Parallax on background layers ----------
   const rays = document.querySelector('.rays');
   const bokehLayer = document.getElementById('bokehLayer');
-  window.addEventListener('scroll', () => {
-    const y = window.scrollY;
+  scrollAreaEl.addEventListener('scroll', () => {
+    const y = scrollAreaEl.scrollTop;
     rays.style.transform = `translateY(${y * 0.08}px) rotate(${y * 0.02}deg)`;
     bokehLayer.style.transform = `translateY(${y * 0.15}px)`;
   }, { passive: true });
 
-  // ---------- Ambient particles ----------
   const particleContainer = document.getElementById('particles');
   const particleCount = window.innerWidth < 640 ? 14 : 24;
   for(let i = 0; i < particleCount; i++){
@@ -510,7 +623,6 @@
     particleContainer.appendChild(p);
   }
 
-  // ---------- Ambient candle bokeh ----------
   const bokehPositions = [
     {top:'12%', left:'8%', size:120}, {top:'70%', left:'88%', size:150},
     {top:'40%', left:'92%', size:90}, {top:'85%', left:'12%', size:110},
@@ -526,14 +638,15 @@
     bokehLayer.appendChild(d);
   });
 
-  // ---------- Seal intro interaction ----------
   const sealScreen = document.getElementById('seal-screen');
   const sealWrap = document.getElementById('seal-wrap');
   sealWrap.addEventListener('click', () => {
     sealWrap.classList.add('opening');
+    bgm.play().then(() => {
+      musicToggle.classList.add('playing');
+    }).catch(() => { /* music.mp3 not found yet — button still works manually */ });
     setTimeout(() => {
       sealScreen.classList.add('hidden');
-      document.body.classList.remove('locked');
       namesHeading.classList.add('animate');
       document.querySelectorAll('.anim').forEach((el,i) => {
         if(el.closest('.countdown') || el.classList.contains('medallion')) return;
@@ -541,6 +654,33 @@
       });
       setTimeout(()=> typeText(document.querySelector('.subtitle'), 32), 900);
     }, 550);
+  });
+</script>
+
+<div class="music-toggle" id="musicToggle" title="Play background music">
+  <div class="ring"></div>
+  <svg class="icon-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+  <svg class="icon-pause" viewBox="0 0 24 24" fill="currentColor"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+</div>
+<audio id="bgm" loop preload="none">
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  const musicToggle = document.getElementById('musicToggle');
+  const bgm = document.getElementById('bgm');
+  bgm.volume = 0.35;
+  musicToggle.addEventListener('click', () => {
+    if(bgm.paused){
+      bgm.play().then(() => {
+        musicToggle.classList.add('playing');
+      }).catch(() => {
+        alert('Add a "music.mp3" file next to index.html to enable background music.');
+      });
+    } else {
+      bgm.pause();
+      musicToggle.classList.remove('playing');
+    }
   });
 </script>
 
